@@ -1,0 +1,55 @@
+databaseChangeLog:
+  - changeSet:
+      id: createClientAddressTable
+      author: Roman
+      changes:
+        - createTable:
+            tableName: client_address
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: region_id
+                  type: varchar(50)
+              - column:
+                  name: region_name
+                  type: varchar(50)
+              - column:
+                  name: city_name
+                  type: varchar(50)
+              - column:
+                  name: street_name
+                  type: varchar(50)
+              - column:
+                  name: building_num
+                  type: int
+              - column:
+                  name: corpus_num
+                  type: int
+              - column:
+                  name: office_num
+                  type: int
+
+  - changeSet:
+      id: addClientAddressIdAndForeignKey
+      author: Roman
+      changes:
+        - addColumn:
+            tableName: client
+            columns:
+              - column:
+                  name: client_address_id
+                  type: bigint
+
+        - addForeignKeyConstraint:
+            baseColumnNames: client_address_id
+            baseTableName: client
+            constraintName: fk_client_address
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: client_address

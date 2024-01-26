@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-order
+      author: Roman
+      changes:
+        - createTable:
+            tableName: booking
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: order_number
+                  type: int
+                  autoIncrement: true
+              - column:
+                  name: order_date
+                  type: date
+              - column:
+                  name: order_description
+                  type: varchar(250)
+              - column:
+                  name: sum
+                  type: int
+              - column:
+                  name: client_id
+                  type: bigint
+
+        - addUniqueConstraint:
+            tableName: booking
+            columnNames: order_number
+            constraintName: unique_order_number_constraint
+
+  - changeSet:
+      id: add-client-foreign-key
+      author: Roman
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: client_id
+            baseTableName: booking
+            constraintName: fk_client_order
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: client

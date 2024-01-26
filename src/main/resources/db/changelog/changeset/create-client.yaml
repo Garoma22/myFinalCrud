@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: createClientTable
+      author: Roman
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: client_name
+                  type: varchar(255)
+              - column:
+                  name: client_inn
+                  type: bigint
+              - column:
+                  name: client_phone
+                  type: bigint
+        - addUniqueConstraint:
+            tableName: client
+            columnNames: id
+            constraintName: unique_id_constraint
+
+        - addUniqueConstraint:
+            tableName: client
+            columnNames: client_inn
+            constraintName: unique_client_inn_constraint
+
+        - addUniqueConstraint:
+            tableName: client
+            columnNames: client_phone
+            constraintName: unique_client_phone_constraint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-client.yaml
+
+  - include:
+      file: db/changelog/changeset/create-clientAddress.yaml
+
+  - include:
+      file: db/changelog/changeset/create-order.yaml
+
+
+
+
+
+
+
+
