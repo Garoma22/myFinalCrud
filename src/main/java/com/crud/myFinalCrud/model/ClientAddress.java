@@ -6,7 +6,8 @@ import lombok.Data;
 
 
 import jakarta.persistence.*;
-
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "client_address")

@@ -2,6 +2,7 @@ package com.crud.myFinalCrud.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,11 +11,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 
-@Component
+
 @Entity
 @Table(name = "client")
-@Setter
-@Getter
+@Data
 public class Client {
 
     @Id
@@ -30,6 +30,8 @@ public class Client {
 
     @Column(name = "client_phone")
     private long clientPhone;
+
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_address_id", referencedColumnName = "id")

@@ -10,4 +10,5 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
 
     Optional<Booking> findByOrderNumber(int orderNumber);
+
 }

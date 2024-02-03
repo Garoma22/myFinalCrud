@@ -13,5 +13,4 @@ public class BookingRequest {
     private Booking booking;
     private Client client;
 
-
 }
