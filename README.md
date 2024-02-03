@@ -1,0 +1,1 @@
+CRUD Web Application using Spring Boot, Hibernate, Mapstruct, Lombok, Liquibase. Development included creating the application's foundations, studying JPA, and adding database functionality through Liquibase. 
